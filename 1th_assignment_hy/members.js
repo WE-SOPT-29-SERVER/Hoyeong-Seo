@@ -1,4 +1,4 @@
-const server_members = [
+let server_members = [
   { name: "강한희", part: "Server", group: "OB" },
   { name: "고성용", part: "Server", group: "OB" },
   { name: "구건모", part: "Server", group: "YB" },
@@ -38,4 +38,4 @@ const server_members = [
   { name: "허유정", part: "Server", group: "YB" },
 ];
 
-module.export = server_members;
+module.exports = server_members;
