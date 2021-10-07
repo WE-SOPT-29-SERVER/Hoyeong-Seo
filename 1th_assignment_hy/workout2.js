@@ -3,7 +3,7 @@ const nowonMembers = [
     name: "서호영",
     age: 26,
     place : "석계",
-    hobby : ["magic"]
+    hobby : ["magic", "free weight", "soccer"]
   },
   {
     name: "박정현",
