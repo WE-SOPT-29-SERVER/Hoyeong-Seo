@@ -12,7 +12,7 @@ const nowonMembers = [
     hobby : ["dance", "game"]
   },
   {
-    name: "안준영",
+    name: "안준영f",
     age: 25,
     place : "공릉",
     hobby : ["exercise"]
