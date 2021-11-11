@@ -1,6 +1,6 @@
-const util = require("../../lib/util")
-const users = require('../../dbMockup/user')
-const responseMessage = require('../../constants/responseMessage')
+const util = require("../../lib/util");
+const users = require('../../dbMockup/user');
+const responseMessage = require('../../constants/responseMessage');
 const statusCode = require('../../constants/statusCode');
 
 module.exports = async(req, res) =>{

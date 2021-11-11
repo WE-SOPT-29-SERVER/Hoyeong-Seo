@@ -1,38 +1,39 @@
 const util = require("../../lib/util")
-const R_Message = require("../../constants/responseMessage")
+const Message = require("../../constants/responseMessage")
 const S_Code = require("../../constants/statusCode")
+const posting = require("../../dbMockup/posting")
 
 
 module.exports = async(req, res) =>{
-    const {id} = req.params
-
-    const existId = users.filter(obj => obj.id === Number(id))[0];
+    const {id} = req.params;
 
     if (!id) {
-        return res.status(statusCode.BAD_REQUEST).send(
+        return res.status(S_Code.BAD_REQUEST).send(
             fail(
-                statusCode.BAD_REQUEST,
-                responseMessage.NULL_VALUE,
+                S_Code.BAD_REQUEST,
+                Message.NULL_VALUE,
                 )
         );
     }
 
-    if(!existId) {
+    const existPost = posting.filter(obj => obj.id === Number(id))[0];
+
+    if(!existPost) {
         return res
-            .status(statusCode)
+            .status(S_Code)
             .send(
                 util.fail(
-                    statusCode.BAD_REQUEST,
-                    responseMessage.NO_USER
+                    S_Code.BAD_REQUEST,
+                    Message.NO_ID_CONTENTS
                 )
-            )
+            );
     }
 
-    res.status(statusCode.OK).send(
+    res.status(S_Code.OK).send(
         util.success(
-            statusCode.OK,
-            responseMessage.READ_PROFILE_SUCCESS,
-            id
+            S_Code.OK,
+            Message.READ_CERTAIN_CONTENTS_SUCCESS,
+            existPost
         )
-    )
+    );
 }
