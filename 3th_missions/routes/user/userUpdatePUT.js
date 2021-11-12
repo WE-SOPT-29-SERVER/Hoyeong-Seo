@@ -22,7 +22,7 @@ module.exports = async(req, res) => {
                 util.fail(
                     statusCode.BAD_REQUEST,
                     responseMessage.NO_USER
-                    )
+                )
             );
     }
     const updateUser = {...existUser, name : newName};

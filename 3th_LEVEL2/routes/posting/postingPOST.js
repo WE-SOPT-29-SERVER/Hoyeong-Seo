@@ -2,10 +2,10 @@ const postings = require("../../dbMockup/posting")
 const util = require("../../lib/util")
 const statusCode = require("../../constants/statusCode")
 const responseMessage = require("../../constants/responseMessage")
-const posting = require("../../dbMockup/posting")
 
 module.exports = async (req, res) => {
-    const {id, title, contents} = req.body;
+    const {title, contents} = req.body;
+    const {id} = req.params;
 
     if (!title || !contents) {
         return res.status(statusCode.BAD_REQUEST).send(
@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
         );
     };
 
-    existTitle = postings.filter(obj => obj.contents === contents).length > 0
+    existTitle = postings.filter(obj => obj.contents === contents).length > 0;
 
     if(existTitle) {
         return res.status(statusCode.BAD_REQUEST).send(
@@ -24,13 +24,19 @@ module.exports = async (req, res) => {
                 statusCode.BAD_REQUEST,
                 responseMessage.ALREADY_EXISTING_TITLE
             )
-        )
-    }
+        );
+    };
 
     const newPost = {
-        id: posting.length + 1,
+        id: postings.length + 1,
         title,
-        contents,
-        
-    }
+        contents
+    };
+    postings.push(newPost);
+    res.status(statusCode.OK).send(
+        util.success(
+            statusCode.OK,
+            responseMessage.CREATED_CONTENTS
+        )
+    );
 }

@@ -8,7 +8,7 @@ module.exports = {
   ALREADY_EXISTING_TITLE: "중복되는 제목의 게시글이 있습니다",
 
   // 게시글 수정
-  UPDATED_CONTENTS_SUCCESS: "게시글 조회 성공",
+  UPDATED_CONTENTS_SUCCESS: "게시글 수정 성공",
 
   // 게시글 조회
   READ_ALL_CONTENTS_SUCCESS: "모든 게시글 조회",

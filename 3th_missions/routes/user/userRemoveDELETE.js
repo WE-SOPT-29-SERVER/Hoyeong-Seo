@@ -4,7 +4,7 @@ const responseMessage = require('../../constants/responseMessage')
 const statusCode = require('../../constants/statusCode');
 
 module.exports = async(req, res) => {
-    const {id} = req.body
+    const {id} = req.params;
 
     if(!id) {
         return res
